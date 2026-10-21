@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservas - Rueda Libre</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="../index.html">Inicio</a></li>
+            <li><a href="tarifas.html">Tarifas y rutas</a></li>
+            <li><a href="tarifas.html">Reservas</a></li>
+        </ul>
+    </nav>
+    <section>
+
+        <h1>Reserva tu bicicleta</h1>
+    <form action = "tarifas.html" method="post">
+        <dt> <input type="text" name="nombres" id="nombres" placeholder="Ingrese su Nombre" required></dt>
+        <dt><input type="text" name="Cedula" id="Cedula" placeholder="Numero de Cedula" required></dt>
+        <dt><input type="email" name="correo" id="correo" placeholder="correo eletronico" required></dt>
+        <label for="fechaalquiler">Fecha alquiler</label>
+        <input type="date">
+        <dt><input type="text" name="numero" id="numero" placeholder="Numero Telefonico"></dt>
+        <label for="tipo de bicicleta">Tipo de Bicicleta</label>
+        <select name ="Tipo de Bicicleta" id="Tipo de bicicleta">
+            <option value = "Urbana">Urbana</option>
+            <option value = "Montaña">Montaña</option>
+            <option value = "Electrica">Electrica</option>
+        </select>
+
+        <br>
+        <label for="cometarios">comentarios</label>
+        <textarea cols="30" rows="5" name="comentarios" id="comentarios"></textarea>
+    <button type="submit">enviar</button>
+    </form>
+    </section>
+    <h2>Horario de atención</h2>
+    <dl>
+        <dt>Lunes a viernes</dt>
+        <dd>7:00 a. m. a 7:00 p. m.</dd>
+        <dt>Sábados, domingos y festivos</dt>
+        <dd>6:00 a. m. a 2:00 p. m.</dd>
+    </dl>
+
+    <footer>
+        <p>Rueda Libre - 2026</p>
+        <p>Correo: <a href="mailto:hola@ruedalibre.example">hola@ruedalibre.example</a></p>
+    </footer>
+</body>
+</html>
