@@ -5,19 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reservas - Rueda Libre</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="../index.html">Inicio</a></li>
-            <li><a href="tarifas.html">Tarifas y rutas</a></li>
-            <li><a href="tarifas.html">Reservas</a></li>
-        </ul>
-    </nav>
+    <header>
+        <nav aria-label="Principal">
+            <ul id="menu">
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="tarifas.html">Tarifas y rutas</a></li>
+                <li><a href="reservas.html" class="activo" aria-current="page">Reservas</a></li>
+            </ul>
+        </nav>
+    </header>
     <section>
 
-        <h1>Reserva tu bicicleta</h1>
-<form action="tarifas.html" method="post">
+    <h1>Reserva tu bicicleta</h1>
+    <form action="tarifas.html" method="post">
     <p>
         <label for="nombres">Nombre completo: </label>
         <input type="text" name="nombres" id="nombres" placeholder="Ingrese su nombre completo" required minlength="3" maxlength="100">
@@ -94,5 +100,6 @@
         <p>Rueda Libre - 2026</p>
         <p>Correo: <a href="mailto:hola@ruedalibre.example">hola@ruedalibre.example</a></p>
     </footer>
+    <a href="https://wa.me/573000000000" class="whatsapp" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp (se abre en una pestaña nueva)">WhatsApp</a>
 </body>
 </html>

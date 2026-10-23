@@ -1,66 +1,93 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rueda Libre</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-    <nav>
-        <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="Paginas/tarifas.html">Tarifas y rutas</a></li>
-            <li><a href="Paginas/reservas.html">Reservas</a></li>
-        </ul>
-    </nav>
+    <header>
+        <nav aria-label="Principal">
+             <ul id="menu">
+                <li><a href="index.html" class="activo" aria-current="page">Inicio</a></li>
+                <li><a href="Paginas/tarifas.html">Tarifas y rutas</a></li>
+                <li><a href="Paginas/reservas.html">Reservas</a></li>
+            </ul>
+        </nav>
+    </header>   
 
-    <h1>Rueda Libre</h1>
-    <p>Bienvenidos a Rueda Libre, un lugar para disfrutar la ciudad en bicicleta. Conoce nuestros servicios y descubre <a href="#encuentranos">dónde encontrarnos</a>.</p>
-    <p><a href="Paginas/tarifas.html">Ver tarifas y precios</a></p>
-    <img src="img/logo.jpg" alt="Logo de Rueda Libre" width="250">
+    <main>
 
-    <h2>¿Quiénes somos?</h2>
-    <p>Somos un negocio dedicado al alquiler de bicicletas. Queremos que las personas disfruten de una forma <em>divertida y saludable</em> de recorrer la ciudad.</p>
+        <section class="portada">
+            <h1>Rueda Libre</h1>
+            <p>Bienvenidos a Rueda Libre, un lugar para disfrutar la ciudad en bicicleta. Conoce nuestros servicios y descubre <a href="#encuentranos" class="boton-cta" >dónde encontrarnos</a>.</p>
+            <p><a href="Paginas/tarifas.html" class="boton-cta" >Ver tarifas y precios</a></p>
+            <img src="img/logo.png" alt="Logo de Rueda Libre" width="950">
+        </section>
 
-    <h2>Nuestros servicios</h2>
+        <h2>¿Quiénes somos?</h2>
+        <p>Somos un negocio dedicado al alquiler de bicicletas. Queremos que las personas disfruten de una forma <em>divertida y saludable</em> de recorrer la ciudad.</p>
 
-    <h3>Alquiler de bicicletas</h3>
-    <p>Alquilamos bicicletas para pasear y conocer la ciudad. El servicio <strong>incluye casco y candado</strong> para mayor seguridad.</p>
-    <img src="img/bicicleta.jpeg" alt="Bicicleta disponible para alquilar" width="350">
+        <section>
+            <h2>Nuestros servicios</h2>
 
-    <h3>Recorridos guiados</h3>
-    <p>Ofrecemos recorridos en bicicleta para conocer diferentes lugares de una manera <em>divertida</em>.</p>
-    <img src="img/ruta.jpg" alt="Imagen de una ruta para bicicletas" width="300">
-    <p><a href="Paginas/reservas.html">Ver precios de los recorridos guiados</a></p>
+            <article class="tarjeta">
+                <h3>Alquiler de bicicletas</h3>
+                <p>Alquilamos bicicletas para pasear y conocer la ciudad. El servicio <strong>incluye casco y candado</strong> para mayor seguridad.</p>
+                <img src="img/bicicleta.png" alt="Bicicleta disponible para alquilar" width="350">
+            </article>
 
-    <h3>Taller básico</h3>
-    <p>Realizamos revisiones y ajustes básicos para mantener las bicicletas en buenas condiciones.</p>
+            <article class="tarjeta tarjeta-nueva">
+                <h3>Bicicletas eléctricas</h3>
+                <span class="etiqueta-nuevo">Nuevo</span>
+                <p>Recorre la ciudad con menos esfuerzo en nuestras bicicletas eléctricas. Consulta su precio en <a href="Paginas/tarifas.html">tarifas y rutas</a>. Incluye casco y candado.</p>
+            </article>
 
-    <h3>Beneficios de alquilar con nosotros</h3>
-    <ul>
-        <li>Incluimos casco y candado.</li>
-        <li>Ofrecemos bicicletas listas para usar.</li>
-        <li>Brindamos recomendaciones para los recorridos.</li>
-    </ul>
+            <article class="tarjeta">
+                <h3>Recorridos guiados</h3>
+                <p>Ofrecemos recorridos en bicicleta para conocer diferentes lugares de una manera <em>divertida</em>.</p>
+                <img src="img/ruta.jpg" alt="Imagen de una ruta para bicicletas" width="300">
+                <p><a href="Paginas/reservas.html" class="boton-cta">Ver precios de los recorridos guiados</a></p>
+            </article>
 
-    <h2>¿Cómo alquilar?</h2>
-    <ol>
-        <li>Contáctanos para consultar disponibilidad.</li>
-        <li>Elige la bicicleta que deseas alquilar.</li>
-        <li>Indica la fecha y el tiempo de alquiler.</li>
-        <li>Confirma el alquiler y realiza el pago.</li>
-    </ol>
-    <p><a href="Paginas/reservas.html">Reservar ahora</a></p>
+            <article class="tarjeta">
+                <h3>Taller básico</h3>
+                <p>Realizamos revisiones y ajustes básicos para mantener las bicicletas en buenas condiciones.</p>
+            </article>
 
-    <h2 id="encuentranos">Encuéntranos</h2>
-    <p>Estamos en Medellin. Consulta nuestra <a href="https://www.google.com/maps/search/?api=1&amp;query=Medellin+Colombia" target="_blank" rel="noopener noreferrer">ubicación en Google Maps</a> (referencia general).</p>
-    <p>Escríbenos a <a href="mailto:hola@ruedalibre.example">hola@ruedalibre.example</a>.</p>
+            <h3>Beneficios de alquilar con nosotros</h3>
+            <ul>
+                <li>Incluimos casco y candado.</li>
+                <li>Ofrecemos bicicletas listas para usar.</li>
+                <li>Brindamos recomendaciones para los recorridos.</li>
+            </ul>
+        </section>
+
+        <h2>¿Cómo alquilar?</h2>
+        <ol>
+            <li>Contáctanos para consultar disponibilidad.</li>
+            <li>Elige la bicicleta que deseas alquilar.</li>
+            <li>Indica la fecha y el tiempo de alquiler.</li>
+            <li>Confirma el alquiler y realiza el pago.</li>
+        </ol>
+        <p><a href="Paginas/reservas.html" class="boton-cta">Reservar ahora</a></p>
+
+        <h2 id="encuentranos">Encuéntranos</h2>
+        <p>Estamos en Medellin. Consulta nuestra <a href="https://www.google.com/maps/search/?api=1&amp;query=Medellin+Colombia" target="_blank" rel="noopener noreferrer">ubicación en Google Maps</a> (referencia general).</p>
+        <p>Escríbenos a <a href="mailto:hola@ruedalibre.example">hola@ruedalibre.example</a>.</p>
+
+    </main>
 
     <footer>
         <p>Rueda Libre - 2026</p>
         <p>Correo: <a href="mailto:hola@ruedalibre.example">hola@ruedalibre.example</a></p>
     </footer>
+    <a href="https://wa.me/573000000000" class="whatsapp" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp (se abre en una pestaña nueva)">WhatsApp</a>
 
 </body>
 </html>

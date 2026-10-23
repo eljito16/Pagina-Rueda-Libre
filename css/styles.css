@@ -1,0 +1,397 @@
+/* =========================================================
+   Rueda Libre v1.0 - Hoja de estilos principal
+   Índice:
+   1. Modelo de caja
+   2. Variables
+   3. Base (cuerpo, títulos, enlaces, imágenes)
+   4. Estructura (columna central)
+   5. Navegación
+   6. Componentes (portada, tarjetas, botones, WhatsApp, tablas)
+   7. Formulario
+   8. Pie de página
+   ========================================================= */
+
+
+/* =========================================================
+   1. MODELO DE CAJA
+   width incluye relleno y borde en todos los elementos
+   ========================================================= */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   2. VARIABLES
+   ========================================================= */
+:root {
+    /* Paleta del cliente */
+    --color-primario:   #1E7A4F;  /* Verde Ruta: botones y enlaces */
+    --color-secundario: #F39A2B;  /* Naranja Pedal: fondos de destacados */
+    --color-texto:      #14213D;  /* Azul Noche: texto, títulos, encabezado */
+    --color-fondo:      #FAF6EF;  /* Crema: fondo general */
+    --color-gris:       #5B6470;  /* Gris Asfalto: texto secundario */
+
+    /* Tipografía con respaldo */
+    --fuente-titulos: "Montserrat", Arial, Helvetica, sans-serif;
+    --fuente-texto:   "Open Sans", Verdana, Arial, sans-serif;
+
+    /* Escala de espaciado */
+    --espacio-xs: 0.25rem;
+    --espacio-s:  0.5rem;
+    --espacio-m:  1rem;
+    --espacio-l:  2rem;
+    --espacio-xl: 3rem;
+}
+
+
+/* =========================================================
+   3. BASE
+   ========================================================= */
+body {
+    font-family: var(--fuente-texto);
+    color: var(--color-texto);
+    background-color: var(--color-fondo);
+    line-height: 1.6;
+    margin: 0;
+    padding: var(--espacio-m);
+    /* Espacio al final para que el enlace de WhatsApp no tape el pie */
+    padding-bottom: calc(var(--espacio-xl) + var(--espacio-l));
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--fuente-titulos);
+}
+
+a {
+    color: var(--color-primario);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+}
+
+a:hover,
+a:focus {
+    color: var(--color-texto);
+    text-decoration-thickness: 0.15em;
+}
+
+a:focus {
+    outline: 3px solid var(--color-primario);
+    outline-offset: 3px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+/* =========================================================
+   4. ESTRUCTURA
+   Columna central limitada en rem y centrada
+   ========================================================= */
+nav, main, footer {
+    max-width: 50rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* =========================================================
+   5. NAVEGACIÓN
+   ========================================================= */
+nav {
+    background-color: var(--color-texto);
+    padding: var(--espacio-m);
+    margin-bottom: var(--espacio-l);
+}
+
+#menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Opciones en fila */
+#menu li {
+    display: inline-block;
+    margin-right: var(--espacio-m);
+}
+
+#menu a {
+    display: inline-block;
+    color: var(--color-fondo);
+    font-weight: 600;
+    text-decoration: none;
+    padding: var(--espacio-s) var(--espacio-m);
+    border-bottom: 3px solid transparent;
+}
+
+/* Página actual: (1,1,1) supera a "#menu a" (1,0,1) */
+#menu a.activo {
+    color: var(--color-secundario);
+    border-bottom-color: var(--color-secundario);
+}
+
+/* Después de .activo: misma especificidad, decide el orden */
+#menu a:hover,
+#menu a:focus {
+    background-color: var(--color-secundario);
+    color: var(--color-texto);
+}
+
+#menu a:focus {
+    outline: 3px solid var(--color-fondo);
+    outline-offset: 2px;
+}
+
+
+/* =========================================================
+   6. COMPONENTES
+   ========================================================= */
+
+/* ---------- Portada de inicio ---------- */
+.portada {
+    min-height: 60vh;
+    padding: var(--espacio-xl) var(--espacio-l);
+    margin-bottom: var(--espacio-l);
+    background-color: var(--color-primario);
+    color: var(--color-fondo);
+    border-radius: var(--espacio-s);
+    text-align: center;
+}
+
+.portada a {
+    color: var(--color-fondo);
+}
+
+.portada a:hover,
+.portada a:focus {
+    background-color: var(--color-secundario);
+    color: var(--color-texto);
+}
+
+.portada a:focus {
+    outline-color: var(--color-fondo);
+}
+
+.portada img {
+    display: block;
+    margin: var(--espacio-l) auto 0;
+}
+
+/* ---------- Tarjetas de servicio ---------- */
+.tarjeta {
+    position: relative;               /* referencia para la etiqueta */
+    width: 100%;
+    padding: var(--espacio-m);
+    margin-bottom: var(--espacio-l);
+    border: 2px solid var(--color-texto);
+    border-radius: var(--espacio-s);
+}
+
+.tarjeta h3 {
+    margin-top: 0;
+}
+
+.tarjeta img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-bottom: var(--espacio-m);
+}
+
+/* Etiqueta "Nuevo": sale del flujo, no desplaza nada */
+.etiqueta-nuevo {
+    position: absolute;
+    top: var(--espacio-s);
+    right: var(--espacio-s);
+    padding: var(--espacio-xs) var(--espacio-s);
+    background-color: var(--color-secundario);
+    color: var(--color-texto);
+    border-radius: var(--espacio-xs);
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* Deja libre el espacio de la etiqueta para que no pise el título */
+.tarjeta-nueva h3 {
+    padding-right: calc(var(--espacio-xl) + var(--espacio-m));
+}
+
+/* ---------- Botones: CTA, formulario y WhatsApp ---------- */
+.boton-cta,
+button,
+.whatsapp {
+    background-color: var(--color-primario);
+    color: var(--color-fondo);
+    border: 2px solid var(--color-primario);
+    border-radius: var(--espacio-xs);
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.boton-cta {
+    display: inline-block;
+    padding: var(--espacio-s) var(--espacio-l);
+}
+
+button {
+    padding: var(--espacio-m) var(--espacio-xl);
+}
+
+.boton-cta:hover,
+.boton-cta:focus,
+button:hover,
+button:focus,
+.whatsapp:hover,
+.whatsapp:focus {
+    background-color: var(--color-secundario);
+    color: var(--color-texto);
+    border-color: var(--color-texto);
+}
+
+.boton-cta:focus,
+button:focus {
+    outline: 3px solid var(--color-texto);
+    outline-offset: 3px;
+}
+
+/* ---------- Enlace flotante de WhatsApp ---------- */
+.whatsapp {
+    position: fixed;                  /* anclado a la ventana, no a la página */
+    right: var(--espacio-m);
+    bottom: var(--espacio-m);
+    z-index: 10;                      /* por encima del contenido */
+    padding: var(--espacio-s) var(--espacio-m);
+    border-color: var(--color-fondo);
+}
+
+/* Aro crema + contorno azul: se ve sobre fondo crema y sobre el pie azul */
+.whatsapp:focus {
+    outline: 3px solid var(--color-texto);
+    outline-offset: 3px;
+    box-shadow: 0 0 0 3px var(--color-fondo);
+}
+
+/* ---------- Tablas ---------- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: var(--espacio-l);
+}
+
+th, td {
+    border: 1px solid var(--color-texto);
+    padding: var(--espacio-s) var(--espacio-m);
+    text-align: left;
+}
+
+thead th {
+    background-color: var(--color-texto);
+    color: var(--color-fondo);
+}
+
+caption {
+    font-weight: 600;
+    margin-bottom: var(--espacio-s);
+}
+
+
+/* =========================================================
+   7. FORMULARIO
+   ========================================================= */
+form {
+    max-width: 40rem;
+}
+
+form p {
+    margin: 0 0 var(--espacio-l);
+}
+
+label {
+    display: block;
+    margin-bottom: var(--espacio-xs);
+    font-weight: 600;
+}
+
+/* El checkbox va en la misma línea que su etiqueta */
+input[type="checkbox"] + label {
+    display: inline;
+    font-weight: 400;
+}
+
+input, select, textarea, button {
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+input, select, textarea {
+    color: var(--color-texto);
+    background-color: var(--color-fondo);
+    border: 2px solid var(--color-texto);
+    border-radius: var(--espacio-xs);
+    padding: var(--espacio-s);
+}
+
+/* Campos a todo el ancho (excepto el checkbox) */
+input:not([type="checkbox"]),
+select,
+textarea {
+    display: block;
+    width: 100%;
+}
+
+textarea {
+    resize: vertical;
+}
+
+input[type="checkbox"] {
+    accent-color: var(--color-primario);
+}
+
+::placeholder {
+    color: var(--color-gris);
+    opacity: 1;
+}
+
+input:hover,
+select:hover,
+textarea:hover {
+    border-color: var(--color-primario);
+}
+
+/* Indicador de foco propio */
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 3px solid var(--color-primario);
+    outline-offset: 2px;
+    border-color: var(--color-primario);
+}
+
+
+/* =========================================================
+   8. PIE DE PÁGINA
+   ========================================================= */
+footer {
+    background-color: var(--color-texto);
+    color: var(--color-fondo);
+    margin-top: var(--espacio-xl);
+    padding: var(--espacio-m);
+}
+
+footer a {
+    color: var(--color-fondo);
+}
+
+footer a:hover,
+footer a:focus {
+    color: var(--color-secundario);
+}
+
+footer a:focus {
+    outline-color: var(--color-fondo);
+}
