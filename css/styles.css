@@ -5,7 +5,7 @@
    2. Variables
    3. Base (cuerpo, títulos, enlaces, imágenes)
    4. Estructura (columna central)
-   5. Navegación
+   5. Navegación (encabezado fijo)
    6. Componentes (portada, tarjetas, botones, WhatsApp, tablas)
    7. Formulario
    8. Pie de página
@@ -32,6 +32,10 @@
     --color-fondo:      #FAF6EF;  /* Crema: fondo general */
     --color-gris:       #5B6470;  /* Gris Asfalto: texto secundario */
 
+    /* Transparencias derivadas de la paleta */
+    --color-velo:   rgba(20, 33, 61, 0.7);  /* Azul Noche al 70 % sobre la foto */
+    --color-sombra: rgba(20, 33, 61, 0.3);  /* Azul Noche al 30 % para sombras */
+
     /* Tipografía con respaldo */
     --fuente-titulos: "Montserrat", Arial, Helvetica, sans-serif;
     --fuente-texto:   "Open Sans", Verdana, Arial, sans-serif;
@@ -48,15 +52,20 @@
 /* =========================================================
    3. BASE
    ========================================================= */
+html {
+    /* Deja espacio para el menú fijo al saltar a un ancla */
+    scroll-padding-top: 5rem;
+}
+
 body {
     font-family: var(--fuente-texto);
     color: var(--color-texto);
     background-color: var(--color-fondo);
     line-height: 1.6;
     margin: 0;
-    padding: var(--espacio-m);
-    /* Espacio al final para que el enlace de WhatsApp no tape el pie */
-    padding-bottom: calc(var(--espacio-xl) + var(--espacio-l));
+    /* Arriba 0 para que el menú quede pegado al borde.
+       Abajo: espacio para que WhatsApp no tape el pie. */
+    padding: 0 var(--espacio-m) calc(var(--espacio-xl) + var(--espacio-l));
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -96,14 +105,30 @@ nav, main, footer {
     margin-right: auto;
 }
 
+main {
+    padding-top: var(--espacio-l);
+}
+
 
 /* =========================================================
    5. NAVEGACIÓN
    ========================================================= */
+
+/* Encabezado fijo: solo el <header> hijo directo del <body> */
+body > header {
+    position: sticky;
+    top: 0;
+    z-index: 20;                       /* por encima de portada, tarjetas y tablas */
+    background-color: var(--color-texto);
+    /* Cancela el relleno lateral del body para cubrir todo el ancho */
+    margin: 0 calc(-1 * var(--espacio-m));
+    padding: 0 var(--espacio-m);
+    box-shadow: 0 0.25rem 0.5rem var(--color-sombra);
+}
+
 nav {
     background-color: var(--color-texto);
     padding: var(--espacio-m);
-    margin-bottom: var(--espacio-l);
 }
 
 #menu {
@@ -118,6 +143,12 @@ nav {
     margin-right: var(--espacio-m);
 }
 
+/* .logo img{
+    width: 200px;
+    margin-top: -7px;
+    margin-right: 250px;
+
+} */
 #menu a {
     display: inline-block;
     color: var(--color-fondo);
@@ -150,34 +181,43 @@ nav {
    6. COMPONENTES
    ========================================================= */
 
-/* ---------- Portada de inicio ---------- */
-.portada {
-    min-height: 60vh;
-    padding: var(--espacio-xl) var(--espacio-l);
-    margin-bottom: var(--espacio-l);
-    background-color: var(--color-primario);
+/* ---------- Portada de ancho completo (hero) ---------- */
+.hero {
+    /* Cancela el relleno lateral del body para llegar a los bordes */
+    margin: 0 calc(-1 * var(--espacio-m));
+    min-height: 90vh;
+    padding: var(--espacio-xl) var(--espacio-m);
+
+    /* Velo oscuro encima de la foto (ruta relativa al CSS) */
+    background-image: linear-gradient(var(--color-velo), var(--color-velo)),
+                      url("../img/fondo.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: var(--color-texto);  /* respaldo si la imagen no carga */
+
     color: var(--color-fondo);
-    border-radius: var(--espacio-s);
-    text-align: center;
+
+    /* Centra el contenido verticalmente */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.portada a {
-    color: var(--color-fondo);
+.hero-contenido {
+    width: 100%;
+    max-width: 50rem;
+    margin: 0 auto;
 }
 
-.portada a:hover,
-.portada a:focus {
-    background-color: var(--color-secundario);
-    color: var(--color-texto);
+.hero h1 {
+    font-size: 3rem;
+    margin-top: 0;
 }
 
-.portada a:focus {
+/* El contorno de foco debe verse sobre la foto oscura */
+.hero .boton-cta:focus {
     outline-color: var(--color-fondo);
-}
-
-.portada img {
-    display: block;
-    margin: var(--espacio-l) auto 0;
 }
 
 /* ---------- Tarjetas de servicio ---------- */
@@ -227,7 +267,7 @@ button,
     background-color: var(--color-primario);
     color: var(--color-fondo);
     border: 2px solid var(--color-primario);
-    border-radius: var(--espacio-xs);
+    border-radius: 60px;
     font-weight: 600;
     text-decoration: none;
     cursor: pointer;
@@ -264,7 +304,7 @@ button:focus {
     position: fixed;                  /* anclado a la ventana, no a la página */
     right: var(--espacio-m);
     bottom: var(--espacio-m);
-    z-index: 10;                      /* por encima del contenido */
+    z-index: 10;                      /* por encima del contenido, bajo el menú */
     padding: var(--espacio-s) var(--espacio-m);
     border-color: var(--color-fondo);
 }
@@ -286,7 +326,7 @@ table {
 th, td {
     border: 1px solid var(--color-texto);
     padding: var(--espacio-s) var(--espacio-m);
-    text-align: left;
+    text-align: center;
 }
 
 thead th {

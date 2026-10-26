@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -11,95 +10,103 @@
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
+
     <header>
         <nav aria-label="Principal">
             <ul id="menu">
                 <li><a href="../index.html">Inicio</a></li>
-                <li><a href="tarifas.html">Tarifas y rutas</a></li>
+                <li><a href="tarifas.html">Tarifas y Rutas</a></li>
                 <li><a href="reservas.html" class="activo" aria-current="page">Reservas</a></li>
             </ul>
         </nav>
     </header>
-    <section>
 
-    <h1>Reserva tu bicicleta</h1>
-    <form action="tarifas.html" method="post">
-    <p>
-        <label for="nombres">Nombre completo: </label>
-        <input type="text" name="nombres" id="nombres" placeholder="Ingrese su nombre completo" required minlength="3" maxlength="100">
-    </p>
+    <main>
 
-    <p>
-        <label for="documento">Documento:</label>
-        <input type="text" name="documento" id="documento" placeholder="Número de documento" required inputmode="numeric" pattern="[0-9]{6,10}" minlength="6" maxlength="10" title="Solo números, entre 6 y 10 dígitos">
-    </p>
+        <section>
+            <h1>Reserva tu bicicleta</h1>
 
-    <p>
-        <label for="correo">Correo:</label>
-        <input type="email" name="correo" id="correo" placeholder="correo@ejemplo.com" required pattern="[^\s@]+@[^\s@]+\.[^\s@]+" title="Ingrese un correo válido, por ejemplo nombre@dominio.com">
-    </p>
+            <form action="tarifas.html" method="get">
+                <p>
+                    <label for="nombres">Nombre completo:</label>
+                    <input type="text" name="nombres" id="nombres" placeholder="Ingrese su nombre completo" autocomplete="name" required minlength="3" maxlength="100">
+                </p>
 
-    <p>
-        <label for="celular">Celular:</label>
-        <input type="tel" name="celular" id="celular" placeholder="3001234567" required inputmode="numeric" pattern="3[0-9]{9}" maxlength="10" title="10 dígitos y debe empezar por 3">
-    </p>
+                <p>
+                    <label for="documento">Documento:</label>
+                    <input type="text" name="documento" id="documento" placeholder="Número de documento" required inputmode="numeric" pattern="[0-9]{6,10}" minlength="6" maxlength="10" title="Solo números, entre 6 y 10 dígitos">
+                </p>
 
-    <p>
-        <label for="fechaalquiler">Fecha del alquiler:</label>
-        <input type="date" name="fechaalquiler" id="fechaalquiler" required min="2026-11-01" max="2026-12-31">
-    </p>
+                <p>
+                    <label for="correo">Correo:</label>
+                    <input type="email" name="correo" id="correo" placeholder="correo@ejemplo.com" autocomplete="email" required pattern="[^\s@]+@[^\s@]+\.[^\s@]+" title="Ingrese un correo válido, por ejemplo nombre@dominio.com">
+                </p>
 
-    <p>
-        <label for="tipobicicleta">Tipo de bicicleta: </label>
-        <select name="tipobicicleta" id="tipobicicleta" required>
-            <option value="" selected disabled>Seleccione un tipo</option>
-            <option value="Urbana">Urbana</option>
-            <option value="Montaña">Montaña</option>
-            <option value="Electrica">Eléctrica</option>
-        </select>
-    </p>
+                <p>
+                    <label for="celular">Celular:</label>
+                    <input type="tel" name="celular" id="celular" placeholder="3001234567" autocomplete="tel" required inputmode="numeric" pattern="3[0-9]{9}" maxlength="10" title="10 dígitos y debe empezar por 3">
+                </p>
 
-    <p>
-        <label for="plan">Plan:</label>
-        <select name="plan" id="plan" required>
-            <option value="" selected disabled>Seleccione un plan</option>
-            <option value="Hora">Por hora</option>
-            <option value="Dia">Por día</option>
-            <option value="Semana">Por semana</option>
-        </select>
-    </p>
+                <p>
+                    <label for="fechaalquiler">Fecha del alquiler:</label>
+                    <input type="date" name="fechaalquiler" id="fechaalquiler" required min="2026-11-01" max="2026-12-31">
+                </p>
 
-    <p>
-        <label for="cantidad">Cantidad de bicicletas:</label>
-        <input type="number" name="cantidad" id="cantidad" required min="1" max="6" step="1" value="1">
-    </p>
+                <p>
+                    <label for="tipobicicleta">Tipo de bicicleta:</label>
+                    <select name="tipobicicleta" id="tipobicicleta" required>
+                        <option value="" selected disabled>Seleccione un tipo</option>
+                        <option value="Urbana">Urbana</option>
+                        <option value="Montaña">Montaña</option>
+                        <option value="Electrica">Eléctrica</option>
+                    </select>
+                </p>
 
-    <p>
-        <label for="comentarios">Comentarios:</label>
-        <textarea name="comentarios" id="comentarios" cols="30" rows="5" maxlength="300"></textarea>
-    </p>
+                <p>
+                    <label for="plan">Plan:</label>
+                    <select name="plan" id="plan" required>
+                        <option value="" selected disabled>Seleccione un plan</option>
+                        <option value="Hora">Por hora</option>
+                        <option value="Dia">Por día</option>
+                        <option value="Semana">Por semana</option>
+                    </select>
+                </p>
 
-    <p>
-        <input type="checkbox" name="politicas" id="politicas" required>
-        <label for="politicas">Acepto las políticas de alquiler</label>
-    </p>
+                <p>
+                    <label for="cantidad">Cantidad de bicicletas:</label>
+                    <input type="number" name="cantidad" id="cantidad" required min="1" max="6" step="1" value="1">
+                </p>
 
-    <button type="submit">Enviar</button>
-</form>
-    </form>
-    </section>
-    <h2>Horario de atención</h2>
-    <dl>
-        <dt>Lunes a viernes</dt>
-        <dd>7:00 a. m. a 7:00 p. m.</dd>
-        <dt>Sábados, domingos y festivos</dt>
-        <dd>6:00 a. m. a 2:00 p. m.</dd>
-    </dl>
+                <p>
+                    <label for="comentarios">Comentarios:</label>
+                    <textarea name="comentarios" id="comentarios" cols="30" rows="5" maxlength="300"></textarea>
+                </p>
+
+                <p>
+                    <input type="checkbox" name="politicas" id="politicas" required>
+                    <label for="politicas">Acepto las políticas de alquiler</label>
+                </p>
+
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+
+        <h2>Horario de atención</h2>
+        <dl>
+            <dt>Lunes a viernes</dt>
+            <dd>7:00 a. m. a 7:00 p. m.</dd>
+            <dt>Sábados, domingos y festivos</dt>
+            <dd>6:00 a. m. a 2:00 p. m.</dd>
+        </dl>
+
+    </main>
 
     <footer>
         <p>Rueda Libre - 2026</p>
         <p>Correo: <a href="mailto:hola@ruedalibre.example">hola@ruedalibre.example</a></p>
     </footer>
+
     <a href="https://wa.me/573000000000" class="whatsapp" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp (se abre en una pestaña nueva)">WhatsApp</a>
+
 </body>
 </html>
