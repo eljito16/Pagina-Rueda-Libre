@@ -1,0 +1,304 @@
+# BITÁCORA - RUEDA LIBRE
+
+## MINIRETO 1 - PETICIONES HTTP
+
+**Datos de la petición:**
+
+- URL: http://127.0.0.1:5500/index.html
+- Protocolo: HTTP/1.1
+- Host: 127.0.0.1
+- Puerto: 5500
+- Ruta: /index.html
+- Método: GET
+- Estado: 304 Not Modified
+
+**¿Qué significa 304 Not Modified?**
+
+es una respuesta del servidor que indica que un recurso solicitado no ha cambiado desde la última vez que fue accedido
+
+**Ruta que no existe:**
+
+- Ruta: /index.html/promociones.html
+- Error: ENOTDIR: not a directory
+- Estado: 500 Internal Server Error
+
+**¿Qué significa?**
+
+El servidor intentó buscar una página dentro de index.html como si fuera una carpeta.
+
+**¿Qué función cumplen HTML, CSS y JavaScript?**
+
+- HTML: Organiza la estructura y el contenido.
+- CSS: Da estilos y diseño a la página.
+- JavaScript: Agrega funciones e interactividad.
+
+## MINIRETO 2 - PÁGINA DE INICIO
+
+**¿Qué hice?**
+
+Organicé la página de inicio utilizando HTML básico.
+
+- Utilicé h1, h2 y h3 para organizar los títulos.
+- Agregué párrafos con p y strong .
+- Creé una lista ul .
+- Agregué tres imágenes con src, alt y width.
+- Agregué enlaces a Google Maps, al correo y a la sección Encuéntranos.
+
+**¿Qué aprendí?**
+
+Aprendí a organizar el contenido de una página utilizando encabezados, párrafos, listas, imágenes y enlaces.
+
+## MINIRETO 3 - TARIFAS Y RUTAS
+
+**¿Qué hice?**
+
+Creé `paginas/tarifas.html` con dos tablas: una para los precios de alquiler y otra para los recorridos guiados.
+
+- Utilicé table, caption, thead, tbody, tr, th, td y scope.
+- Agregué los horarios, la información del casco y candado y una lista de qué llevar.
+- Mostré el logo utilizando `../img/logo.jpg`.
+- Conecté las páginas mediante rutas relativas y agregué un enlace directo a `#recorridos`.
+
+**¿Qué aprendí?**
+
+Aprendí a crear tablas y a conectar archivos de diferentes carpetas utilizando rutas relativas como `../`.
+
+## MINIRETO 4 - RUEDA LIBRE V0.1
+
+**¿Qué hice?**
+
+Creé `paginas/reservas.html` y conecté las tres páginas mediante un menú de navegación.
+
+- Agregué un menú con Inicio, Tarifas y rutas, y Reservas.
+- Utilicé dl, dt y dd para mostrar los horarios de atención.
+- Agregué el correo con mailto y un pie de página con el nombre, correo y año.
+- Agregué enlaces «Reservar ahora» desde inicio y tarifas.
+
+**Tabla de rutas relativas:**
+
+| Origen | Destino | Ruta |
+|---|---|---|
+| index.html | Inicio | index.html |
+| index.html | Tarifas | paginas/tarifas.html |
+| index.html | Reservas | paginas/reservas.html |
+| tarifas.html | Inicio | ../index.html |
+| tarifas.html | Tarifas | tarifas.html |
+| tarifas.html | Reservas | reservas.html |
+| reservas.html | Inicio | ../index.html |
+| reservas.html | Tarifas | tarifas.html |
+| reservas.html | Reservas | reservas.html |
+
+**Verificación en DevTools:**
+
+Navegué entre las tres páginas utilizando el menú y comprobé en Network que no se presentaron errores 404.
+
+**¿Qué aprendí?**
+
+Aprendí a conectar varias páginas con un menú, utilizar rutas relativas y mostrar horarios con listas de definiciones.
+
+**Versión:** Rueda Libre v0.1
+
+---
+
+**Nota:** Hasta el momento desarrollé el proyecto utilizando únicamente HTML, sin CSS ni JavaScript.
+
+index.html:
+
+body
+├─ header
+│   ├─ nav  (menú: Inicio / Tarifas / Reservas)
+│   └─ h1 "Rueda Libre"
+├─ main
+│   ├─ (párrafo de bienvenida + enlace + logo)  ← sin section: no tiene encabezado
+│   ├─ section  (h2 ¿Quiénes somos?)
+│   ├─ section  (h2 Nuestros servicios)
+│   │   ├─ article (h3 Alquiler de bicicletas)
+│   │   ├─ article (h3 Recorridos guiados)
+│   │   ├─ article (h3 Taller básico)
+│   │   └─ section (h3 Beneficios de alquilar con nosotros)  ← decisión, ver abajo
+│   ├─ section  (h2 ¿Cómo alquilar?)
+│   └─ section  (h2 Encuéntranos)   ← conserva id="encuentranos"
+└─ footer
+
+tarifas.html:
+
+body
+├─ header
+│   ├─ nav
+│   └─ h1 "Tarifas y Rutas - Rueda Libre"
+├─ main
+│   ├─ (logo + enlace "Volver al inicio")  ← sin section: no tienen encabezado
+│   ├─ section (h2 Tarifas de alquiler) → table
+│   ├─ section (h2 Recorridos guiados) → table + enlace   ← conserva id="recorridos"
+│   ├─ section (h2 Información importante)
+│   │   ├─ p, p
+│   │   └─ aside (h3 ¿Qué llevar? + ul)   ← contenido complementario
+│   └─ (enlace "Regresar a Rueda Libre")
+└─ footer
+
+reservas.html:
+
+body
+├─ header
+│   ├─ nav
+│   └─ h1 "Reserva tu bicicleta"
+├─ main
+│   ├─ p (correo de contacto)
+│   └─ aside (h2 Horario de atención + dl)   ← contenido complementario
+└─ footer
+
+## MINIRETO 5 - REESTRUCTURACIÓN SEMÁNTICA
+
+**¿Qué hice?**
+
+Reestructuré las tres páginas con etiquetas semánticas, manteniendo el contenido y la navegación de la v0.1.
+
+- Agrupé el nombre del negocio y el menú dentro de un `<header>` en las tres páginas.
+- Marqué el menú como `<nav>` dentro del `<header>`.
+- Envolví el contenido propio de cada página en un único `<main>`.
+- Convertí el bloque final en `<footer>`.
+- En index, cada bloque temático quedó como `<section>` con su propio encabezado, y cada servicio (Alquiler de bicicletas, Recorridos guiados y Taller básico) como `<article>`.
+- En tarifas, cada tabla quedó en su propia `<section>` y "¿Qué llevar?" se marcó como `<aside>`.
+- En reservas, el horario de atención se marcó como `<aside>`.
+
+**Decisiones justificadas:**
+
+- El bloque de bienvenida del index (párrafo + enlace + logo) y el bloque del logo + "Volver al inicio" en tarifas no tienen encabezado propio, por eso quedaron como hijos directos de `<main>` sin envolverlos en `<section>`.
+- "Beneficios de alquilar con nosotros" no es un servicio, por eso no se convirtió en `<article>` sino en una `<section>` anidada dentro de "Nuestros servicios".
+- El `<aside>` de reservas se dejó dentro de `<main>` porque es contenido complementario a la acción principal de reservar.
+- No existe ningún `<div>` ni `<span>` en el código. No había en la v0.1 y no se introdujo ninguno, así que no hay nada que justificar sobre ellos.
+
+**Jerarquía de encabezados:** se conservó igual que en la v0.1 (mismos textos, mismos niveles h1/h2/h3).
+
+**Verificación:** confirmé un solo `<main>`, un solo `<header>` y un solo `<footer>` por página; los enlaces del menú y los enlaces internos (`#encuentranos`, `tarifas.html#recorridos`) siguen funcionando.
+
+**¿Qué aprendí?**
+
+Aprendí a usar etiquetas semánticas (`<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<aside>`, `<footer>`) para que la estructura del sitio tenga significado tanto para Google como para lectores de pantalla, sin perder contenido ni romper la navegación.
+
+**Versión:** Rueda Libre v0.2 (reestructuración semántica)
+
+## MINIRETO 6 - FORMULARIO DE RESERVA
+
+**¿Qué hice?**
+
+Agregué un formulario de reserva dentro del contenido principal de `paginas/reservas.html`, manteniendo la estructura semántica del MiniReto 5.
+
+- Creé una `<section>` "Formulario de reserva" con un `<form action="#" method="post">`.
+- Agrupé los campos en tres `<fieldset>` con su `<legend>`: "Tus datos", "Tu alquiler" y "Confirmación".
+- Asocié cada control con su `<label for>` y su `id`, y le puse `name` a todos.
+- Agregué `<button type="submit">` al final del formulario.
+
+**Controles elegidos por dato:**
+
+| Dato | Control | `name` |
+|---|---|---|
+| Nombre completo | `<input type="text">` | `nombre` |
+| Número de documento | `<input type="text">` | `documento` |
+| Correo electrónico | `<input type="email">` | `correo` |
+| Celular | `<input type="tel">` | `celular` |
+| Fecha del alquiler | `<input type="date">` | `fecha` |
+| Tipo de bicicleta | `<input type="radio">` (tres opciones) | `tipo_bicicleta` |
+| Plan | `<input type="radio">` (tres opciones) | `plan` |
+| Cantidad de bicicletas | `<input type="number">` | `cantidad` |
+| Recorrido guiado | `<select>` + `<option>` | `recorrido` |
+| Comentarios | `<textarea>` | `comentarios` |
+| Aceptación de políticas | `<input type="checkbox">` | `politicas` |
+
+**Justificación de tres elecciones:**
+
+1. **Correo electrónico → `type="email"`:** el navegador valida automáticamente el formato antes de enviar, evitando reservas con correos mal escritos (uno de los problemas que mencionó el cliente).
+2. **Fecha del alquiler → `type="date"`:** muestra un calendario nativo que impide fechas inválidas y reduce los errores de fechas equivocadas que llegaban por WhatsApp.
+3. **Tipo de bicicleta → `type="radio"`:** son solo tres opciones mutuamente excluyentes, con pocas alternativas; los radios dejan todas visibles y el `name` compartido (`tipo_bicicleta`) garantiza que solo se pueda elegir una.
+
+**¿Qué aprendí?**
+
+Aprendí a elegir el control HTML más adecuado para cada tipo de dato, a agrupar campos con `<fieldset>` y `<legend>`, a asociar etiquetas con controles usando `for`/`id`, y a enviar datos con `method="post"`.
+
+**Versión:** Rueda Libre v0.3 (formulario de reserva)
+
+## MINIRETO 7 - VALIDACIÓN NATIVA Y TECLADO
+
+**¿Qué hice?**
+
+Traduje cada regla de negocio del cliente a atributos de validación nativa en `paginas/reservas.html`, manteniendo la estructura semántica del MiniReto 6.
+
+**Reglas traducidas a atributos:**
+
+| Campo | Regla del cliente | Atributos aplicados |
+|---|---|---|
+| Nombre completo | Obligatorio, mínimo 3 caracteres | `required` + `minlength="3"` |
+| Documento | Obligatorio, solo números, 6–10 dígitos | `required` + `pattern="[0-9]{6,10}"` + `minlength="6"` + `maxlength="10"` + `title` |
+| Correo | Obligatorio, formato válido | `type="email"` + `required` |
+| Celular | Obligatorio, 10 dígitos, empieza por 3 | `type="tel"` + `required` + `pattern="3[0-9]{9}"` + `minlength="10"` + `maxlength="10"` + `title` |
+| Fecha del alquiler | Obligatoria, 1 nov – 31 dic 2026 | `type="date"` + `required` + `min="2026-11-01"` + `max="2026-12-31"` + `title` |
+| Tipo de bicicleta | Obligatorio | `required` en el grupo de radios |
+| Plan | Obligatorio | `required` en el grupo de radios |
+| Cantidad | Obligatoria, 1 a 6 | `type="number"` + `required` + `min="1"` + `max="6"` |
+| Comentarios | Opcional, máximo 300 caracteres | `maxlength="300"` (sin `required`) |
+| Políticas | Obligatorio aceptarlas | `required` en el checkbox |
+
+**Patrones usados:**
+
+- Documento: `[0-9]{6,10}` → solo dígitos del 0 al 9, entre 6 y 10 posiciones. Uso `[0-9]` en lugar de `\d` porque `\d` acepta dígitos Unicode.
+- Celular: `3[0-9]{9}` → 10 dígitos exactos, el primero debe ser 3.
+- Ambos patrones llevan `title` para que el navegador muestre el mensaje esperado al usuario.
+
+**Tabla de pruebas:**
+
+| # | Campo | Dato de prueba | Resultado esperado | Resultado obtenido |
+|---|---|---|---|---|
+| 1 | Nombre completo | (vacío) | No envía; pide completar | ❌ No envía — mensaje "Completa este campo" |
+| 2 | Nombre completo | `Al` (2 caracteres) | No envía; mínimo 3 | ❌ No envía — "Alarga este texto a 3 caracteres o más" |
+| 3 | Documento | `abc12345` (letras) | No envía; formato inválido | ❌ No envía — muestra `title` |
+| 4 | Documento | `12345` (5 dígitos) | No envía | ❌ No envía — formato inválido |
+| 5 | Documento | `1234567890` (10 dígitos) | Envía | ✅ Aceptado |
+| 6 | Correo | `correo` (sin @) | No envía | ❌ No envía — "Incluye un signo @" |
+| 7 | Celular | `3001234567` | Envía | ✅ Aceptado |
+| 8 | Celular | `1234567890` | No envía; debe empezar por 3 | ❌ No envía — muestra `title` |
+| 9 | Celular | `300123` (6 dígitos) | No envía | ❌ No envía — formato inválido |
+| 10 | Fecha | `2026-10-15` (antes del rango) | No envía | ❌ No envía — "El valor debe ser 2026-11-01 o posterior" |
+| 11 | Fecha | `2026-11-15` | Envía | ✅ Aceptado |
+| 12 | Cantidad | `0` | No envía; mínimo 1 | ❌ No envía |
+| 13 | Cantidad | `7` | No envía; máximo 6 | ❌ No envía |
+| 14 | Tipo de bicicleta | (ninguno seleccionado) | No envía | ❌ No envía — "Selecciona una de estas opciones" |
+| 15 | Plan | (ninguno seleccionado) | No envía | ❌ No envía |
+| 16 | Comentarios | 301 caracteres | El campo se corta a 300 | ✅ Se detiene en 300 |
+| 17 | Políticas | Sin marcar | No envía | ❌ No envía — "Marca esta casilla si deseas continuar" |
+
+**Prueba de navegación por teclado:**
+
+Recorrí el formulario completo solo con el teclado y el orden fue lógico:
+
+1. `Tab` → Nombre completo
+2. `Tab` → Número de documento
+3. `Tab` → Correo electrónico
+4. `Tab` → Celular
+5. `Tab` → Fecha del alquiler
+6. `Tab` → grupo "Tipo de bicicleta" (un solo tab-stop; flechas ↑/↓ cambian la opción)
+7. `Tab` → grupo "Plan" (igual, flechas para elegir)
+8. `Tab` → Cantidad de bicicletas
+9. `Tab` → Recorrido guiado (con `select`, flechas abren opciones)
+10. `Tab` → Comentarios
+11. `Tab` → checkbox Políticas (barra espaciadora lo marca)
+12. `Tab` → Botón "Enviar reserva" (`Enter` envía)
+13. `Shift + Tab` retrocede en el mismo orden.
+
+No fue necesario reordenar nada: el orden del DOM coincide con el orden lógico de llenado.
+
+**¿Qué aprendí?**
+
+Aprendí a traducir reglas de negocio a validación nativa HTML (`required`, `minlength`, `maxlength`, `pattern`, `min`, `max`, tipos `email`, `tel`, `number`, `date`) y a comprobar que un formulario se puede completar y enviar solo con teclado.
+
+**Versión:** Rueda Libre v0.4 (validación nativa)
+
+El Conflicto: El compañero escribió #menu a y .activo.
+
+La Solución: Para solucionarlo sin recurrir a !important ni a estilos en línea, aumentamos la especificidad del selector activo combinándolo con el menú: #menu a.activo (o #menu .activo), cuya especificidad pasa a ser (0, 1, 1, 1) (1 ID, 1 clase, 1 etiqueta), ganando correctamente la disputa de cascada de forma limpia y estándar.
+
+Por defecto, el navegador calcula el ancho de un elemento sumando el contenido + padding + bordes (modelo estándar). Al cambiar a box-sizing: border-box, el ancho total declarado (por ejemplo, max-width: 800px o width: 100%) incluye internamente el relleno y los bordes, evitando que los elementos se desborden o crezcan inesperadamente.
+
+
+he usado la ia para correcciones de codigo y para copiar funciones de otras paginas, he estado viendo paginas web de ventas de bicicletas y hay funciones o apartados que me parecieron interesantes entonces use la ia para que me dijera como hacia eso, tambien para que me ayudara a poner titulos en el css, cada dia se agrega mas y mas codigo en el css entonces como es tan largo le dije a la ia que le pusiera los titulos al inicio de cada etiqueta para saber de que son y ser mas eficiente a la hora de editar o cambiar cosas, y por ultimo me he ayudado con la bitacora en algunos puntos explicandome bien lo que tengo que escribir o hacer porque no entendia bien.
+
+

@@ -3,110 +3,179 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Reserva tu bicicleta con Rueda Libre en Medellín.">
     <title>Reservas - Rueda Libre</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
 
     <header>
-        <nav aria-label="Principal">
-            <ul id="menu">
-                <li><a href="../index.html">Inicio</a></li>
-                <li><a href="tarifas.html">Tarifas y Rutas</a></li>
-                <li><a href="reservas.html" class="activo" aria-current="page">Reservas</a></li>
-            </ul>
-        </nav>
+        <div class="encabezado">
+            <a class="marca" href="">Rueda Libre</a>
+
+            <nav aria-label="Principal">
+                <ul id="menu">
+                    <li><a href="/index.html">Inicio</a></li>
+                    <li><a href="/Paginas/tarifas.html">Tarifas y Rutas</a></li>
+                    <li><a href="/Paginas/reservas.html" class="activo" aria-current="page">Reservas</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <main>
-
-        <section>
+        <section class="seccion">
             <h1>Reserva tu bicicleta</h1>
+            <p>Completa el formulario para enviar tu solicitud de alquiler.</p>
 
-            <form action="tarifas.html" method="get">
-                <p>
-                    <label for="nombres">Nombre completo:</label>
-                    <input type="text" name="nombres" id="nombres" placeholder="Ingrese su nombre completo" autocomplete="name" required minlength="3" maxlength="100">
-                </p>
+            <div class="reservas-layout">
+                <section class="formulario-contenedor">
+                    <h2>Datos de la reserva</h2>
 
-                <p>
-                    <label for="documento">Documento:</label>
-                    <input type="text" name="documento" id="documento" placeholder="Número de documento" required inputmode="numeric" pattern="[0-9]{6,10}" minlength="6" maxlength="10" title="Solo números, entre 6 y 10 dígitos">
-                </p>
+                    <form action="reservas.html" method="get">
+                        <div class="campo">
+                            <label for="nombres">Nombre completo:</label>
+                            <input type="text" name="nombres" id="nombres"
+                                   placeholder="Ingrese su nombre completo"
+                                   autocomplete="name" required minlength="3" maxlength="100">
+                        </div>
 
-                <p>
-                    <label for="correo">Correo:</label>
-                    <input type="email" name="correo" id="correo" placeholder="correo@ejemplo.com" autocomplete="email" required pattern="[^\s@]+@[^\s@]+\.[^\s@]+" title="Ingrese un correo válido, por ejemplo nombre@dominio.com">
-                </p>
+                        <div class="campos-dobles">
+                            <div class="campo">
+                                <label for="documento">Documento:</label>
+                                <input type="text" name="documento" id="documento"
+                                       placeholder="Número de documento"
+                                       required inputmode="numeric"
+                                       pattern="[0-9]{6,10}" minlength="6" maxlength="10"
+                                       title="Solo números, entre 6 y 10 dígitos">
+                            </div>
 
-                <p>
-                    <label for="celular">Celular:</label>
-                    <input type="tel" name="celular" id="celular" placeholder="3001234567" autocomplete="tel" required inputmode="numeric" pattern="3[0-9]{9}" maxlength="10" title="10 dígitos y debe empezar por 3">
-                </p>
+                            <div class="campo">
+                                <label for="celular">Celular:</label>
+                                <input type="tel" name="celular" id="celular"
+                                       placeholder="3001234567" autocomplete="tel"
+                                       required inputmode="numeric"
+                                       pattern="3[0-9]{9}" maxlength="10"
+                                       title="10 dígitos y debe empezar por 3">
+                            </div>
+                        </div>
 
-                <p>
-                    <label for="fechaalquiler">Fecha del alquiler:</label>
-                    <input type="date" name="fechaalquiler" id="fechaalquiler" required min="2026-11-01" max="2026-12-31">
-                </p>
+                        <div class="campo">
+                            <label for="correo">Correo electrónico:</label>
+                            <input type="email" name="correo" id="correo"
+                                   placeholder="correo@ejemplo.com"
+                                   autocomplete="email" required>
+                        </div>
 
-                <p>
-                    <label for="tipobicicleta">Tipo de bicicleta:</label>
-                    <select name="tipobicicleta" id="tipobicicleta" required>
-                        <option value="" selected disabled>Seleccione un tipo</option>
-                        <option value="Urbana">Urbana</option>
-                        <option value="Montaña">Montaña</option>
-                        <option value="Electrica">Eléctrica</option>
-                    </select>
-                </p>
+                        <div class="campo">
+                            <label for="fechaalquiler">Fecha del alquiler:</label>
+                            <input type="date" name="fechaalquiler" id="fechaalquiler"
+                                   min="2026-10-26" max="2026-12-31" required>
+                        </div>
 
-                <p>
-                    <label for="plan">Plan:</label>
-                    <select name="plan" id="plan" required>
-                        <option value="" selected disabled>Seleccione un plan</option>
-                        <option value="Hora">Por hora</option>
-                        <option value="Dia">Por día</option>
-                        <option value="Semana">Por semana</option>
-                    </select>
-                </p>
+                        <div class="campo">
+                            <label for="tipobicicleta">Tipo de bicicleta:</label>
+                            <select name="tipobicicleta" id="tipobicicleta" required>
+                                <option value="" selected disabled>Seleccione un tipo</option>
+                                <option value="Urbana Clásica">Urbana Clásica</option>
+                                <option value="Urbana Plegable">Urbana Plegable</option>
+                                <option value="Montaña Trail">Montaña Trail</option>
+                                <option value="Gravel Aventura">Gravel Aventura</option>
+                                <option value="Eléctrica Urbana">Eléctrica Urbana</option>
+                                <option value="Infantil">Infantil</option>
+                                <option value="Tándem">Tándem</option>
+                            </select>
+                        </div>
 
-                <p>
-                    <label for="cantidad">Cantidad de bicicletas:</label>
-                    <input type="number" name="cantidad" id="cantidad" required min="1" max="6" step="1" value="1">
-                </p>
+                        <div class="campos-dobles">
+                            <div class="campo">
+                                <label for="plan">Plan:</label>
+                                <select name="plan" id="plan" required>
+                                    <option value="" selected disabled>Seleccione un plan</option>
+                                    <option value="Hora">Por hora</option>
+                                    <option value="Medio día">Medio día</option>
+                                    <option value="Dia">Por día</option>
+                                </select>
+                            </div>
 
-                <p>
-                    <label for="comentarios">Comentarios:</label>
-                    <textarea name="comentarios" id="comentarios" cols="30" rows="5" maxlength="300"></textarea>
-                </p>
+                            <div class="campo">
+                                <label for="cantidad">Cantidad de bicicletas:</label>
+                                <input type="number" name="cantidad" id="cantidad"
+                                       required min="1" max="6" step="1" value="1">
+                            </div>
+                        </div>
 
-                <p>
-                    <input type="checkbox" name="politicas" id="politicas" required>
-                    <label for="politicas">Acepto las políticas de alquiler</label>
-                </p>
+                        <div class="campo">
+                            <label for="comentarios">Comentarios:</label>
+                            <textarea name="comentarios" id="comentarios"
+                                      rows="4" maxlength="300"
+                                      placeholder="Información adicional (opcional)"></textarea>
+                        </div>
 
-                <button type="submit">Enviar</button>
-            </form>
+                        <div class="campo campo-politicas">
+                            <input type="checkbox" name="politicas" id="politicas" required>
+                            <label for="politicas">Acepto las políticas de alquiler.</label>
+                        </div>
+
+                        <button type="submit">Enviar solicitud</button>
+                    </form>
+                </section>
+
+                <aside class="informacion-contacto">
+                    <h2>Información de contacto</h2>
+                    <p>¿Tienes preguntas sobre disponibilidad o precios? Contáctanos.</p>
+
+                    <h3>Correo</h3>
+                    <p><a href="mailto:hola@ruedalibre.example">hola@ruedalibre.example</a></p>
+
+                    <h3>Ubicación</h3>
+                    <p>Medellín, Colombia</p>
+                    <p>
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=Medellin+Colombia"
+                           target="_blank" rel="noopener noreferrer">Ver en Google Maps</a>
+                    </p>
+
+                    <h3>Horario de atención</h3>
+                    <dl>
+                        <dt>Lunes a viernes</dt>
+                        <dd>7:00 a. m. a 7:00 p. m.</dd>
+                        <dt>Sábados, domingos y festivos</dt>
+                        <dd>6:00 a. m. a 2:00 p. m.</dd>
+                    </dl>
+                </aside>
+            </div>
         </section>
-
-        <h2>Horario de atención</h2>
-        <dl>
-            <dt>Lunes a viernes</dt>
-            <dd>7:00 a. m. a 7:00 p. m.</dd>
-            <dt>Sábados, domingos y festivos</dt>
-            <dd>6:00 a. m. a 2:00 p. m.</dd>
-        </dl>
-
     </main>
 
     <footer>
-        <p>Rueda Libre - 2026</p>
-        <p>Correo: <a href="mailto:hola@ruedalibre.example">hola@ruedalibre.example</a></p>
+        <div class="pie-contenido">
+            <section class="pie-bloque">
+                <h2>Rueda Libre</h2>
+                <p>Recorre Medellín a tu ritmo.</p>
+                <p>© 2026 Rueda Libre</p>
+            </section>
+
+            <section class="pie-bloque">
+                <h2>Contacto</h2>
+                <p>Correo: <a href="mailto:hola@ruedalibre.example">hola@ruedalibre.example</a></p>
+                <p>Medellín, Colombia</p>
+            </section>
+
+            <section class="pie-bloque">
+                <h2>Horario</h2>
+                <p>Lunes a viernes: 7:00 a. m. – 7:00 p. m.</p>
+                <p>Fines de semana y festivos: 6:00 a. m. – 2:00 p. m.</p>
+            </section>
+        </div>
     </footer>
 
-    <a href="https://wa.me/573000000000" class="whatsapp" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp (se abre en una pestaña nueva)">WhatsApp</a>
+    <a href="https://wa.me/573000000000" class="whatsapp"
+       target="_blank" 
+       aria-label="WhatsApp, se abre en una pestaña nueva">WhatsApp</a>
 
 </body>
 </html>
