@@ -1,6 +1,6 @@
 # BITÁCORA - RUEDA LIBRE
 
-## MINIRETO 1 - PETICIONES HTTP
+** MINIRETO 1 - PETICIONES HTTP
 
 **Datos de la petición:**
 
@@ -32,7 +32,7 @@ El servidor intentó buscar una página dentro de index.html como si fuera una c
 - CSS: Da estilos y diseño a la página.
 - JavaScript: Agrega funciones e interactividad.
 
-## MINIRETO 2 - PÁGINA DE INICIO
+** MINIRETO 2 - PÁGINA DE INICIO
 
 **¿Qué hice?**
 
@@ -48,7 +48,7 @@ Organicé la página de inicio utilizando HTML básico.
 
 Aprendí a organizar el contenido de una página utilizando encabezados, párrafos, listas, imágenes y enlaces.
 
-## MINIRETO 3 - TARIFAS Y RUTAS
+** MINIRETO 3 - TARIFAS Y RUTAS
 
 **¿Qué hice?**
 
@@ -63,7 +63,7 @@ Creé `paginas/tarifas.html` con dos tablas: una para los precios de alquiler y 
 
 Aprendí a crear tablas y a conectar archivos de diferentes carpetas utilizando rutas relativas como `../`.
 
-## MINIRETO 4 - RUEDA LIBRE V0.1
+** MINIRETO 4 - RUEDA LIBRE V0.1
 
 **¿Qué hice?**
 
@@ -147,7 +147,7 @@ body
 │   └─ aside (h2 Horario de atención + dl)   ← contenido complementario
 └─ footer
 
-## MINIRETO 5 - REESTRUCTURACIÓN SEMÁNTICA
+** MINIRETO 5 - REESTRUCTURACIÓN SEMÁNTICA
 
 **¿Qué hice?**
 
@@ -178,7 +178,7 @@ Aprendí a usar etiquetas semánticas (`<header>`, `<nav>`, `<main>`, `<section>
 
 **Versión:** Rueda Libre v0.2 (reestructuración semántica)
 
-## MINIRETO 6 - FORMULARIO DE RESERVA
+** MINIRETO 6 - FORMULARIO DE RESERVA
 
 **¿Qué hice?**
 
@@ -217,7 +217,7 @@ Aprendí a elegir el control HTML más adecuado para cada tipo de dato, a agrupa
 
 **Versión:** Rueda Libre v0.3 (formulario de reserva)
 
-## MINIRETO 7 - VALIDACIÓN NATIVA Y TECLADO
+** MINIRETO 7 - VALIDACIÓN NATIVA Y TECLADO
 
 **¿Qué hice?**
 
@@ -300,5 +300,54 @@ Por defecto, el navegador calcula el ancho de un elemento sumando el contenido +
 
 
 he usado la ia para correcciones de codigo y para copiar funciones de otras paginas, he estado viendo paginas web de ventas de bicicletas y hay funciones o apartados que me parecieron interesantes entonces use la ia para que me dijera como hacia eso, tambien para que me ayudara a poner titulos en el css, cada dia se agrega mas y mas codigo en el css entonces como es tan largo le dije a la ia que le pusiera los titulos al inicio de cada etiqueta para saber de que son y ser mas eficiente a la hora de editar o cambiar cosas, y por ultimo me he ayudado con la bitacora en algunos puntos explicandome bien lo que tengo que escribir o hacer porque no entendia bien.
+
+
+**Bitácora – Rueda Libre v2 (Bootstrap)**
+
+** MiniReto 5 – Flota con la grilla (pruebas/catalogo-bootstrap.html)
+
+
+ (cuenta en `styles.css`: `.cuadricula-flota`, la regla de `.tarjeta-flota` con `display:flex`,
+ `.tarjeta-flota-contenido` y los márgenes `margin-top:auto`).
+- **Clases de distribución usadas ahora:** 7 distintas
+ (`container`, `row`, `g-3`, `col-12`, `col-sm-6`, `col-lg-4`, `col-xl-3`), 0 líneas de CSS.
+- **Qué me dio Bootstrap sin esfuerzo:** 1/2/3/4 columnas por breakpoint, gutters uniformes,
+ `box-sizing` y reset, alturas iguales con `h-100`, proporción de imagen con `ratio`.
+- **Qué control perdí:** los breakpoints son fijos (576/992/1200 px); no puedo usar
+ `auto-fit/minmax` para que el número de columnas se adapte solo; el aspecto por defecto
+ (colores, tipografía) es el de Bootstrap, no el de mi marca.
+
+
+** MiniReto 6 – Beneficios y franja solo con utilidades
+
+
+Cinco clases que encontré en la documentación:
+
+
+1. `object-fit-contain` – la imagen se ve entera dentro de su caja sin deformarse.
+2. `ratio ratio-4x3` – reserva una caja con proporción 4:3 y ajusta el hijo a ella.
+3. `flex-md-row` – cambia `flex-direction` a fila desde 768 px (en móvil queda en columna).
+4. `d-none d-md-block` – oculta el elemento en móvil y lo muestra desde `md`.
+5. `text-nowrap` – evita que el texto del enlace se parta en dos líneas.
+
+
+Otras usadas: `gap-3`, `justify-content-md-between`, `text-bg-*`, `lead`, `display-6`, `fw-semibold`.
+
+
+** MiniReto 7 – Inicio con Bootstrap
+
+
+- Orden de carga: Bootstrap primero, `styles.css` después.
+- Resultado probado a 360 / 768 / 1280 px: ___
+
+
+**Conflictos documentados** 
+
+
+| # | Conflicto | Cómo lo vi | Solución (sin `!important`) |
+|---|-----------|-----------|------------------------------|
+| 1 | Fuente y color de fondo del `body` | Declaración de Bootstrap tachada | `styles.css` carga después con el mismo selector `body` |
+| 2 | `line-height` y `font-size` de `h1`–`h4` / color de enlaces | Valor de Bootstrap tachado en `h2`, `a` | Mismo selector, hoja propia posterior |
+| 3 | Colores de marca vs. `text-success`, `bg-warning`, `bg-dark` | Las utilidades salían con los verdes/naranjas de Bootstrap | Redefinir `--bs-success-rgb`, `--bs-warning-rgb`, `--bs-dark-rgb` en `:root` |
 
 
