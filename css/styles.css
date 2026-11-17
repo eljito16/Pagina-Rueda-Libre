@@ -187,9 +187,9 @@ nav {
     color: var(--color-texto);
 }
 
-/* 5. PORTADA: GRID DE DOS COLUMNAS EN ESCRITORIO */
+/* 5. PORTADA:  */
 
-/* 5. PORTADA (HERO) CON IMAGEN DE FONDO */
+/*  (HERO) CON IMAGEN DE FONDO */
 
 .hero {
    margin: 0 calc(-1 * var(--espacio-m));
@@ -197,16 +197,16 @@ nav {
     padding: var(--espacio-xl) var(--espacio-m);
 
     background-image: linear-gradient(var(--color-velo), var(--color-velo)),
-                      url("/img/fondo.jpeg");
+                      url("../img/fondo.jpeg");
     background-size: cover;
-    background-position: center bottom;   /* muestra la parte de abajo, donde están los niños */
+    background-position: center bottom;   
     background-repeat: no-repeat;
     background-color: var(--color-texto);
 
     color: var(--color-fondo);
 
     display: flex;
-    align-items: flex-start;   /* texto arriba, como en tu imagen 1 */
+    align-items: flex-start;  
     justify-content: center;
 }
 
@@ -273,7 +273,7 @@ button:focus {
 
 /* 7. CUADRÍCULA DE LA FLOTA: GRID */
 
-/* auto-fit + minmax permite agregar modelos sin cambiar el CSS. */
+/* auto-fit + minmax . */
 
 .cuadricula-flota {
     display: grid;
@@ -479,7 +479,7 @@ tbody th {
     margin-top: 0;
 }
 
-/* Cada campo ocupa el ancho disponible. */
+
 
 form {
     width: 100%;
@@ -544,7 +544,7 @@ input[type="checkbox"] {
     font-weight: 400;
 }
 
-/* Documento y celular: dos campos en la misma fila. */
+
 
 .campos-dobles {
     display: grid;
